@@ -1,15 +1,12 @@
 <template>
     <div>
-      <contact-phone></contact-phone>
       <router-view />
     </div>
 </template>
 <script>
-import ContactPhone from './components/ContactPhone.vue'
+
 export default{
-  components:{
-    'contact-phone': ContactPhone
-  }
+
 }
 </script>
 

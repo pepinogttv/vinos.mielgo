@@ -47,14 +47,14 @@ export default {
         }
       };
     },
-    outlineParent(){
-        const buscador_container = this.$refs.buscador_container;
-        buscador_container.style.border = '1px solid black'
+    outlineParent() {
+      const buscador_container = this.$refs.buscador_container;
+      buscador_container.style.border = "1px solid black";
     },
-    noOutlineParent(){
-        const buscador_container = this.$refs.buscador_container;
-        buscador_container.style.border = 'none'
-    }
+    noOutlineParent() {
+      const buscador_container = this.$refs.buscador_container;
+      buscador_container.style.border = "none";
+    },
   },
 };
 </script>
@@ -70,8 +70,9 @@ export default {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.4s;
+  z-index: 1000;
 }
-.buscador_container.scrollInTop{
+.buscador_container.scrollInTop {
   position: relative;
 }
 .buscador_container.scroll-down {
@@ -79,16 +80,18 @@ export default {
   top: 50px;
   width: 90%;
   left: calc(50% - 45%);
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.20);
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.20);
 }
-.buscador_container.scroll-up{
-    position: fixed;
-    top: 35px;
-    width: 90%;
-    left: calc(50% - 45%);
+.buscador_container.scroll-up {
+  position: fixed;
+  top: 35px;
+  width: 90%;
+  left: calc(50% - 45%);
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.20);
 }
 @media (min-width: 1440px) {
-  .buscador_container.scroll-down, .buscador_container.scroll-up{
+  .buscador_container.scroll-down,
+  .buscador_container.scroll-up {
     max-width: 1400px;
     left: calc(calc(100% - 1400px) / 2);
   }
@@ -119,7 +122,7 @@ export default {
   border: none;
   padding: 0.5rem;
 }
-.buscador:focus{
-    outline: none;
+.buscador:focus {
+  outline: none;
 }
 </style>

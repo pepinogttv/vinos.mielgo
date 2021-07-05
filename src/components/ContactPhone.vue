@@ -40,7 +40,7 @@ export default {
 .contact_phone {
   position: fixed;
   width: 100%;
-  max-width: 1425px;
+  left: 0;
   padding: 0.5rem;
   color: white;
   background-color: var(--verde-wsp);
