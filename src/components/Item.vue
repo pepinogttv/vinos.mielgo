@@ -1,7 +1,7 @@
 <template>
   <div class="item_listado">
     <div class="item_listado__imagen">
-      <img src="https://picsum.photos/400/400" alt="" />
+      <img src="https://instalaciondepvc.com/storage/app/default/picture.jpg" alt="" />
     </div>
     <div class="item_listado__info">
       <h5>{{ vino.nombre }}</h5>
@@ -46,6 +46,9 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 1px solid whitesmoke;
 }
 .item_listado__info {
   width: 85%;
