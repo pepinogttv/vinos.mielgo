@@ -4,8 +4,8 @@
     <h1>{{ vino.nombre }}</h1>
     <div class="hr"></div>
     <div>
-      <img class="img" :src="vino.imagenes[0]" alt="" />
       <h2>Codigo: {{ vino.codigo }}</h2>
+      <img class="img" :src="vino.imagenes[0]" alt="" />
       <div class="crud_buttons">
         <button class="crud_buttons__editar" @click="editar">Editar</button>
         <button class="crud_buttons__borrar" @click="borrar">Borrar</button>
@@ -34,7 +34,7 @@ export default {
   },
   mounted() {
     this.getVino();
-    window.scroll(0,0)
+    window.scroll(0, 0);
   },
   methods: {
     borrar() {

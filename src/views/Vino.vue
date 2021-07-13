@@ -8,8 +8,8 @@
         :text="vino.nombre"
         paddingTop="30px"
       ></Header-Component>
-      <img :src="vino.imagenes[0]" alt="" class="img" />
       <h2>Codigo: {{ vino.codigo }}</h2>
+      <img :src="vino.imagenes[0]" alt="" class="img" />
     </div>
   </div>
 </template>
