@@ -1,8 +1,10 @@
 <template>
-  <div class="contact_phone" id="contact_phone">
-    <i class="fa fa-phone faa-ring animated"></i>&nbsp;
-    <a href="tel: +542352430049">+54 2352 430049</a>
-  </div>
+  <a href="tel: +542352430049">
+    <div class="contact_phone" id="contact_phone">
+      <i class="fa fa-phone faa-ring animated"></i>&nbsp;
+      <a href="tel: +542352430049">+54 2352 430049</a>
+    </div>
+  </a>
 </template>
 
 <script>
@@ -21,15 +23,15 @@ export default {
     fixedAndHidde() {
       const contact_phone = this.$refs.contact_phone;
       return () => {
-          const currentScroll = window.pageYOffset;
-          if (currentScroll > this.lastScroll) {
-            contact_phone.classList.remove(scrollUp);
-            contact_phone.classList.add(scrollDown);
-          } else if (currentScroll < this.lastScroll) {
-            contact_phone.classList.remove(scrollDown);
-            contact_phone.classList.add(scrollUp);
-          }
-          this.lastScroll = currentScroll;
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > this.lastScroll) {
+          contact_phone.classList.remove(scrollUp);
+          contact_phone.classList.add(scrollDown);
+        } else if (currentScroll < this.lastScroll) {
+          contact_phone.classList.remove(scrollDown);
+          contact_phone.classList.add(scrollUp);
+        }
+        this.lastScroll = currentScroll;
       };
     },
   },
@@ -41,9 +43,11 @@ export default {
   position: fixed;
   width: 100%;
   left: 0;
+  top: 0;
   padding: 0.5rem;
   color: white;
-  background-color: var(--verde-wsp);
+  /* background-color: var(--verde-wsp); */
+  background-color: darkslategray;
   text-align: center;
   letter-spacing: 1px;
   font-size: 1.1rem;

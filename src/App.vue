@@ -1,33 +1,34 @@
 <template>
-    <div>
-      <router-view />
-    </div>
+  <div>
+    <router-view />
+    <scroll-to-top></scroll-to-top>
+  </div>
 </template>
 <script>
-
-export default{
-
-}
+import ScrollToTop from "./components/ScrollToTop.vue";
+export default {
+  components: {
+    "scroll-to-top": ScrollToTop,
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
-:root{
-  --verde-wsp: #26D366;
+@import url("https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap");
+:root {
+  --verde-wsp: #26d366;
   --white: whitesmoke;
 }
-html{
-  background-color: white;
-}
-body{
-  margin: 0;
-  min-height: 200vh;
+html {
   background-color: var(--white);
-  max-width: 1440px;
-  margin: auto;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 }
-a{
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--white);
+  /* font-family: "Antic Slab", serif; */
+}
+a {
   color: unset;
   text-decoration: unset;
 }
@@ -37,5 +38,13 @@ a{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-
+.no_select_highlighting {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 </style>

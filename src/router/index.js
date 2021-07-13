@@ -1,21 +1,31 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
+import { createRouter, createWebHistory } from "vue-router";
+const lazyLoad = (view) => () => import(`../views/${view}.vue`);
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue')
+    path: "/",
+    name: "Home",
+    component: lazyLoad('Home')
   },
   {
-    path: '/admin',
-    name: 'Admin',
-    component: () => import('../views/Admin.vue')
+    path: "/admin",
+    name: "Admin",
+    component: lazyLoad('Admin')
+  },
+  {
+    path: "/vinos/:id",
+    name: "Vino",
+    component: lazyLoad('Vino')
+  },
+  {
+    path: "/admin/:id",
+    name: "VinoCrud",
+    component: lazyLoad('VinoCrud')
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

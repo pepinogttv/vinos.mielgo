@@ -3,9 +3,12 @@
     <input
       class="buscador"
       type="search"
+      ref="buscador_input"
       @focus="outlineParent"
       @blur="noOutlineParent"
+      @change="buscarVinos"
       placeholder="NOMBRE, MARCA, O CODIGO..."
+      v-model="searched"
     />
     <button class="buscar_button">Buscar</button>
   </div>
@@ -19,9 +22,13 @@ const addAndRemoveClass = (classToRemove, classToAdd, element) => {
 const scrollUp = "scroll-up";
 const scrollDown = "scroll-down";
 export default {
+  props: {
+    borrarBusqueda: Boolean,
+  },
   data() {
     return {
       lastScroll: 0,
+      searched: "",
     };
   },
   mounted() {
@@ -49,13 +56,16 @@ export default {
     },
     outlineParent() {
       const buscador_container = this.$refs.buscador_container;
-      buscador_container.style.border = "1px solid black";
+      buscador_container.style.border = "1px solid darkslateblue";
     },
     noOutlineParent() {
       const buscador_container = this.$refs.buscador_container;
       buscador_container.style.border = "none";
     },
-  },
+    buscarVinos() {
+      this.$emit("startOfSearch", this.searched);
+    }
+  }
 };
 </script>
 
@@ -80,20 +90,24 @@ export default {
   top: 50px;
   width: 90%;
   left: calc(50% - 45%);
-  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.20);
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 .buscador_container.scroll-up {
   position: fixed;
   top: 35px;
   width: 90%;
   left: calc(50% - 45%);
-  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.20);
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 1440px) {
   .buscador_container.scroll-down,
   .buscador_container.scroll-up {
-    max-width: 1400px;
-    left: calc(calc(100% - 1400px) / 2);
+    top: 50px;
+    height: 55px;
+    width: 90%;
+    left: calc(50% - 45%);
   }
 }
 .buscar_button {
@@ -124,5 +138,10 @@ export default {
 }
 .buscador:focus {
   outline: none;
+}
+@media (max-width: 600px) {
+  .buscador {
+    font-size: 0.9rem;
+  }
 }
 </style>

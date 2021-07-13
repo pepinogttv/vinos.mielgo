@@ -8,7 +8,7 @@ mongoose.connect(
     console.log("Conexion a la base de datos exitosa!");
   }
 );
-
+mongoose.set('useFindAndModify', false);
 const Schema = mongoose.Schema;
 const vinosSchema = new Schema({
   nombre: String,

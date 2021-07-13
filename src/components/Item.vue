@@ -1,13 +1,21 @@
 <template>
-  <div class="item_listado">
-    <div class="item_listado__imagen">
-      <img src="https://instalaciondepvc.com/storage/app/default/picture.jpg" alt="" />
+  <router-link
+    :to="`/vinos/${vino._id}`"
+    class="router_link_to_item_detail"
+  >
+    <div class="item_listado">
+      <div class="item_listado__imagen">
+        <img
+          :src="vino.imagenes[0]"
+          alt=""
+        />
+      </div>
+      <div class="item_listado__info">
+        <h5>{{ vino.nombre }}</h5>
+        <h5>{{ vino.codigo }}</h5>
+      </div>
     </div>
-    <div class="item_listado__info">
-      <h5>{{ vino.nombre }}</h5>
-      <h5>{{ vino.codigo }}</h5>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -19,12 +27,15 @@ export default {
 </script>
 
 <style>
+.router_link_to_item_detail {
+  width: 49.5%;
+  margin-bottom: 10px;
+}
 .item_listado {
-  width: 49%;
+  width: 100%;
   height: 55px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
@@ -45,7 +56,7 @@ export default {
 .item_listado__imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border: 1px solid whitesmoke;
@@ -67,7 +78,7 @@ export default {
   margin: 0;
 }
 @media (max-width: 1024px) {
-  .item_listado {
+  .router_link_to_item_detail {
     width: 99%;
     height: 60px;
   }
@@ -76,7 +87,7 @@ export default {
   }
   .item_listado__info h5:first-child {
     text-align: start;
-    font-size: .9rem;
+    font-size: 0.9rem;
     max-width: 88%;
     margin: 0;
   }
